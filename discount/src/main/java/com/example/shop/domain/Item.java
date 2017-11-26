@@ -10,9 +10,9 @@ public class Item {
 		
 	}
 	
-	public Item(String brand, String category, double price) {
+	public Item(String brand, Category category, double price) {
 		this.brand = Brand.fromString(brand);
-		this.category = Category.getInstance(category);
+		this.category = category;
 		this.actualPrice = price;
 	}
 

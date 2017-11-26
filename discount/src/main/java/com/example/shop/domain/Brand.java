@@ -8,7 +8,7 @@ public enum Brand implements HasDiscount {
 	VERO_MODA("Vero Moda", 0.6), 
 	UCB("UCB", 0.0), 
 	WRANGLER("Wrangler", 0.), 
-	PROVOGUE("Progvogue", 0.2), 
+	PROVOGUE("Provogue", 0.2), 
 	ADIDAS("Adidas", 0.05);
 
 	private String brandName;

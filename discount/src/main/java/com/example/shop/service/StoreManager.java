@@ -13,6 +13,6 @@ public interface StoreManager {
 	
 	public Item getItem(int id) throws ObjectNotFoundException;
 	
-	public boolean addItem(String brand, String categoryType, double actualPrice);
+	public void addItem(String brand, String categoryType, double actualPrice);
 	
 }

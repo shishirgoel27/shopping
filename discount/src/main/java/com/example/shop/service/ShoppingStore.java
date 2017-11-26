@@ -4,16 +4,17 @@ import java.util.List;
 
 import com.example.shop.domain.Category;
 import com.example.shop.domain.Item;
+import com.example.shop.exception.ObjectNotFoundException;
 
 public interface ShoppingStore {
 	
 	public double getBillAmount(List<Integer> itemIds);
 
-	public void setCategories(List<Category> categories);
+	public void addCategory(String type, Category category);
 
-	public boolean addItem(int index, String brand, String categoryType, double actualPrice);
+	public void addItem(int index, String brand, String categoryType, double actualPrice);
 
-	public Item getItem(int id);
+	public Item getItem(int id) throws ObjectNotFoundException;
 
 	public int getInventorySize();
 
