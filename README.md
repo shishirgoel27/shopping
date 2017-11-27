@@ -6,9 +6,13 @@
   When running with mvn spring-boot command, the arguments are to be separated by comma.
   If the argument value contains comma, then replace it with a different delimiter(default used is '|').
   In this case, the different arguments submitted are:
+      
       CSV FILE PATH
+      
       2
+      
       1|2|3|4
+      
       1|5
   
 # Command to run
