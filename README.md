@@ -12,4 +12,4 @@
   1|5
   
 # Command to run
-mvn spring-boot:run -Drun.arguments="<CSV FILE PATH>,2,1|2|3|4,1|5"
+mvn spring-boot:run -Drun.arguments="CSV FILE PATH,2,1|2|3|4,1|5"
