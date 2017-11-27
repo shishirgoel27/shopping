@@ -3,13 +3,12 @@ package com.example.shop.service.impl;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.net.MalformedURLException;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.core.annotation.Order;
+import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.io.InputStreamSource;
-import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Component;
 
 import com.example.shop.domain.Category;
@@ -29,11 +28,7 @@ public class StoreManagerImpl implements StoreManager, CommandLineRunner {
 
 	@Override
 	public void setInputSource(String source) {
-		try {
-			inputStreamSource = new UrlResource("file:///" + source);
-		} catch (MalformedURLException e) {
-			throw new RuntimeException(e);
-		}
+		inputStreamSource = new FileSystemResource(source);
 	}
 
 	@Override
