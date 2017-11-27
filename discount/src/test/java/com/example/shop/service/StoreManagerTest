@@ -34,7 +34,7 @@ public class StoreManagerTest {
 		Item item = new Item();
 		item.setActualPrice(800.00);
 		when(store.getItem(Mockito.anyInt())).thenReturn(item);
-		mgr.setInputSource("C:\\Contest\\shopping-master\\discount\\src\\test\\resources\\input.csv");
+		mgr.setInputSource(new ClassPathResource("input.csv").getFile().getAbsolutePath());
 		mgr.buildCategories();
 		mgr.loadInventory();
 		assertEquals(800.00,mgr.getItem(1).getActualPrice(),800.00-mgr.getItem(1).getActualPrice());
