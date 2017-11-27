@@ -77,9 +77,11 @@ public class ShoppingStoreService implements ShoppingStore, CommandLineRunner {
 			bills[i] = getBillAmount(idList);
 		}
 
+		System.out.println("================================");
 		for (int j = 0; j < bills.length; j++) {
 			System.out.println(bills[j]);
 		}
+		System.out.println("================================");
 	}
 
 }
