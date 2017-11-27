@@ -1,6 +1,9 @@
 # shopping
    Description : 
       Get discounted price at a shopping store
+      
+      StoreManager : Interfacing with Store Owner. Responsible for managing the inventory and defining categories and can get/add items in the inventory.
+      ShoppingStore : Internally maintaining data structures for inventory and categories. Also responsible to provide the final bill amount.
 
 # Running with Maven
   When running with mvn spring-boot command, the arguments are to be separated by comma.
