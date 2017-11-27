@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 import com.example.shop.domain.Category;
 import com.example.shop.domain.CategoryType;
 import com.example.shop.domain.Item;
+import com.example.shop.exception.InvalidInputException;
 import com.example.shop.exception.ObjectNotFoundException;
 import com.example.shop.service.ShoppingStore;
 
@@ -61,10 +62,13 @@ public class ShoppingStoreService implements ShoppingStore, CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		if (args == null || args.length == 0) {
-			throw new Exception("No input source provided");
+		if (args == null || args.length < 2) {
+			throw new Exception("No customer choices are provided");
 		}
 		int numRequest = Integer.parseInt(args[1]);
+		if(args.length < (numRequest+2) ) {
+			throw new InvalidInputException("Choices for the purchases are not present");
+		}
 		double[] bills = new double[numRequest];
 		for (int i = 0; i < numRequest; i++) {
 			String[] ids = args[i + 2].split("\\|");
