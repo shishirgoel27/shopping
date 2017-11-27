@@ -1,0 +1,43 @@
+package com.example.shop.service;
+
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.when;
+
+import org.junit.Before;
+import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.Mockito;
+import org.mockito.MockitoAnnotations;
+
+import com.example.shop.domain.Category;
+import com.example.shop.domain.Item;
+import com.example.shop.service.impl.StoreManagerImpl;
+
+public class StoreManagerTest {
+	
+	@Mock
+	private ShoppingStore store;
+	@InjectMocks
+	private StoreManagerImpl mgr;
+	
+	@Before
+	public void setup() {
+		MockitoAnnotations.initMocks(this);
+	}
+	
+	@Test
+	public void testGetItemFromInventory() throws Exception {
+		doNothing().when(store).addItem(Mockito.anyInt(), Mockito.anyString(), Mockito.anyString(), Mockito.anyDouble());
+		doNothing().when(store).addCategory(Mockito.anyString(), Mockito.any(Category.class));
+		Item item = new Item();
+		item.setActualPrice(800.00);
+		when(store.getItem(Mockito.anyInt())).thenReturn(item);
+		mgr.setInputSource("C:\\Contest\\shopping-master\\discount\\src\\test\\resources\\input.csv");
+		mgr.buildCategories();
+		mgr.loadInventory();
+		assertEquals(800.00,mgr.getItem(1).getActualPrice(),800.00-mgr.getItem(1).getActualPrice());
+	}
+	
+}
