@@ -1,6 +1,6 @@
 # shopping
    Description : 
-      Get discounted price when shopping at a store
+      Get discounted price at a shopping store
 
 # Running with Maven
   When running with Spring Boot, the arguments are separated by comma.
